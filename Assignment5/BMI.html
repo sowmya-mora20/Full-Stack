@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <input type="number" id="height" placeholder="Enter height in meters">
+        <br><br>
+        <input type="number" id="weight" placeholder="Enter weight in kilograms">
+        <br><br>
+        <button onclick="calculateBMI()">Calculate BMI</button>
+        <br><br>
+        <div class="result" id="result"></div>
+    </div>
+</body>
+<style>
+    body{
+        font-family: 'Times New Roman', Times, serif;
+        justify-content: center;
+        text-align: center;
+        display: flex;
+        background-color: rosybrown;
+    }
+    .container{
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 25px;
+        background-color: rgb(173, 115, 115);
+    }
+    .container input, .container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    
+    </style>
+    <script>
+        function calculateBMI() {
+            let height = parseFloat(document.getElementById('height').value);
+            let weight = parseFloat(document.getElementById('weight').value);
+            let result = document.getElementById('result');
+
+            if (isNaN(height) || isNaN(weight)) {
+                result.textContent = "Please enter valid numbers for height and weight.";
+                return;
+            }
+
+            let bmi = weight / (height * height);
+            result.textContent = "Your BMI is: " + bmi.toFixed(2);
+        }
+    </script>
+</html>
